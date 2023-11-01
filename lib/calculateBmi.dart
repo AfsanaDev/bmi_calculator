@@ -114,7 +114,7 @@ class _CalculateBmiState extends State<CalculateBmi> {
               child: const Text('Display results'),
           ),
           Text("Your BMI is :$totalBmi"),
-          Text("Your helath update is: $totalBmi")
+          Text("Your health update is: $totalBmi")
         ],
       ),
     );
