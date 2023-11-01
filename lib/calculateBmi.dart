@@ -11,6 +11,7 @@ class _CalculateBmiState extends State<CalculateBmi> {
   dynamic totalBmi = 0;
   dynamic newBmi = 0;
   int bmiNumber =0 ;
+  dynamic bmiStatus ='';
   TextEditingController age = TextEditingController();
   TextEditingController weight = TextEditingController();
   TextEditingController height =TextEditingController();
@@ -74,47 +75,41 @@ class _CalculateBmiState extends State<CalculateBmi> {
 
           //height section done
           TextButton(
-              onPressed: (){
-            setState(() {
-               newBmi =(double.parse(weight.text))/(( double.parse(height.text))*( double.parse(height.text)));
-               totalBmi =newBmi*10000;
+            onPressed: (){
+              setState(() {
+                newBmi =(double.parse(weight.text))/
+                    (( double.parse(height.text))*( double.parse(height.text)));
+                totalBmi =newBmi*10000;
 
-               if(totalBmi<=15.5){
-                 dynamic data = "Severe Thinness";
-                 return data ;
-               }
-               else if(16>=17){
-                 dynamic data = " Moderate Thinness";
-                 return data;
-               }
-               else if(17.5>=18.5){
-                 dynamic data = " Mild Thinness";
-                 return data;
-              }
-               else if(18.6>=25){
-                 dynamic data ="Normal";
-                 return data;
-               }
-               else if(25.5>=30){
-                 dynamic data ="OverWeight";
-                 return data;
-               }
-               else if(30.5>=35){
-                 dynamic data ="Obese class I";
-                 return data;
-               }else if(35.5>=40){
-                 dynamic data ="Obese class II";
-                 return data;
-               }else {
-                 print("Obese class III");
-               }
+                if(totalBmi<=15.5){
+                  bmiStatus = "Severe Thinness";
 
-            });
-          },
-              child: const Text('Display results'),
+                }
+                else if(16>=17){
+                  bmiStatus = " Moderate Thinness";
+                }
+                else if(17.5>=18.5){
+                  bmiStatus = " Mild Thinness";
+                }
+                else if(18.6>=25){
+                  bmiStatus ="Normal";
+                }
+                else if(25.5>=30){
+                  bmiStatus ="OverWeight";
+                }
+                else if(30.5>=35){
+                  bmiStatus ="Obese class I";
+                }else if(35.5>=40){
+                  bmiStatus ="Obese class II";
+                }else {
+                  bmiStatus = "Obese class III";
+                }
+              });
+            },
+            child: const Text('Display results'),
           ),
           Text("Your BMI is :$totalBmi"),
-          Text("Your health update is: $totalBmi")
+          Text("Your helath update is: $bmiStatus")
         ],
       ),
     );
