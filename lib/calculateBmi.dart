@@ -81,35 +81,24 @@ class _CalculateBmiState extends State<CalculateBmi> {
                     (( double.parse(height.text))*( double.parse(height.text)));
                 totalBmi =newBmi*10000;
 
-                if(totalBmi<=15.5){
-                  bmiStatus = "Severe Thinness";
-
+                if(totalBmi < 18.50){
+                  bmiStatus = "You BMI is Underweight";
                 }
-                else if(16>=17){
-                  bmiStatus = " Moderate Thinness";
+                else if (totalBmi > 18.5 && totalBmi <= 24.9){
+                  bmiStatus = "Congratulation! your fitness is good";
                 }
-                else if(17.5>=18.5){
-                  bmiStatus = " Mild Thinness";
+                else if(totalBmi > 24.9 && totalBmi <= 39.9){
+                  bmiStatus = "Your weight is Overweight";
                 }
-                else if(18.6>=25){
-                  bmiStatus ="Normal";
-                }
-                else if(25.5>=30){
-                  bmiStatus ="OverWeight";
-                }
-                else if(30.5>=35){
-                  bmiStatus ="Obese class I";
-                }else if(35.5>=40){
-                  bmiStatus ="Obese class II";
-                }else {
-                  bmiStatus = "Obese class III";
+                else{
+                  bmiStatus = "Obese";
                 }
               });
             },
             child: const Text('Display results'),
           ),
           Text("Your BMI is :$totalBmi"),
-          Text("Your helath update is: $bmiStatus")
+          Text("Your health : $bmiStatus")
         ],
       ),
     );
